@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('users', 'UserController');
+
+Route::get('user/{id}', 'UserController@show');
+
+Route::get('article', function () {
+    return view('article.index');
+});
+
+// Route::get('article/{id}', function ($id) {
+//     return 'Article '.$id;
+// });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

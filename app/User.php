@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname', 'biography', 'name','email','password'
     ];
 
     /**
@@ -34,6 +34,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+//        'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Récupère les compétences de l'utilisateur.
+     */
+    public function skills()
+    {
+        return $this->belongsToMany('App\Skill')->withPivot('level');
+    }
+
 }
