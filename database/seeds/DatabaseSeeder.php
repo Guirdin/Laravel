@@ -14,13 +14,21 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         $this->call(SkillsTableSeeder::class);
-        $skills = App\Skill::all(); 
+        $this->call(RolesTableSeeder::class);
+        $skills = App\Skill::all();
+        $roles = App\Role::all();
+        $a = App\User::find(51);
+
+
         factory(App\User::class, 50)->create()->each(function($u) use ($skills) {
             $skillSet = $skills->random((rand(1,4)));
+
             foreach($skillSet as $skill ) {
                 $u->skills()->attach($skill->id, ['level' => rand(1,5)]);
+
+            foreach($roleSet as $role ) {
+                $a->roles()->attach($role->1);
             }
         });
-
     }
 }
