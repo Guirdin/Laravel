@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $skills = App\Skill::all();
         $roles = App\Role::all();
-        $a = App\User::find(51);
+        $a = App\User::find(52);
 
 
         factory(App\User::class, 50)->create()->each(function($u) use ($skills) {

@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', 'UserController');
 
 Route::get('user/{id}', 'UserController@show');
 
@@ -31,8 +30,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::resource('users', 'UserController');
 Route::resource('skills','SkillController');
+// Route::resource('users.skill', 'SkillSetController');
+
+// Route::get('users/{user}', 'UserController@show')->middleware('can:view')->name('users.show');
+// Route::resource('users', 'UserController')->except(['show', 'index'])->middleware('can:manager');
+
+
